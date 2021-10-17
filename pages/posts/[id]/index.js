@@ -13,7 +13,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 
 // import "./styles.css";
 import { useDispatch, useSelector } from "react-redux";
-// import { RightBarComponent } from "./components/rightBar.component";
+import { RightBarComponent } from "../../../components/homeComponents/rightBar.component";
 import { MainRightSideSkeleton } from "../../../components/global/skeleton/MainRightSide";
 import { openSnackBar } from "../../../redux/actions/snackbar.actions";
 
@@ -63,6 +63,7 @@ const PostId = () => {
     paperContainer: {
       backgroundColor: theme === "light" ? "" : "#282c36",
       color: theme === "light" ? "" : "white",
+      transition: "all .5s ease",
     },
     imgcontainer: {
       height: "30rem",
@@ -97,7 +98,7 @@ const PostId = () => {
       <Container maxWidth="xl">
         <Grid container spacing={2}>
           <Grid item xs={12} md={1}>
-            aaaa
+            
           </Grid>
           <Grid item xs={12} sm={12} md={9}>
             <Container style={styles.titleBackground}>
@@ -124,7 +125,7 @@ const PostId = () => {
                   onClick={toHome(true)}
                   src="https://res.cloudinary.com/codexmaker/image/upload/v1630026497/logos/codexmaker_logo_my3ecl.png"
                 />
-                {/* <RightBarComponent /> */}
+                <RightBarComponent />
                 <div>
                   <Typography style={{ paddingTop: "1rem" }} variant="h6">
                     Developers ayudados :

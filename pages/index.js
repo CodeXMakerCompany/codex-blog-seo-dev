@@ -17,7 +17,7 @@ import { fetchLatestPosts } from "../redux/actions/posts.action";
 import { BannerSkeleton } from "../components/global/skeleton/Banner";
 import { MainRightSideSkeleton } from "../components/global/skeleton/MainRightSide";
 
-const Home = ({theme}) => {
+const Home = () => {
   const dispatch = useDispatch();
 
   const state = useSelector((state) => state.posts);
@@ -41,7 +41,7 @@ const Home = ({theme}) => {
   const doSomeMagic = () => {};
 
   return (
-    <div style={{ backgroundColor: theme === "dark" ? "#282c36" : ""}}>
+    <>
       <SEOHelmet props={seoMain} />
       <Container maxWidth="xl">
         <Grid container spacing={2}>
@@ -81,7 +81,7 @@ const Home = ({theme}) => {
           </Hidden>
         </Grid>
       </Container>
-    </div>
+    </>
   );
 };
 
