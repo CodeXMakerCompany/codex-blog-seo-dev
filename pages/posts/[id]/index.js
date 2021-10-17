@@ -18,7 +18,7 @@ import parseDate from "../../../utils/parseDate";
 
 const PostId = () => {
   const dispatch = useDispatch();
-  const id = window.location.pathname.split("/")[2];
+  const id = window ? window.location.pathname.split("/")[2] : '0';
   const [rate, setRate] = useState(0);
   const post = useSelector((state) => state.posts.targetPost);
   const theme = useSelector((state) => state.settings.theme);
