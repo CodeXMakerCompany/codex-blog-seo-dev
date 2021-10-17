@@ -50,7 +50,7 @@ const PostId = () => {
   const articleSeo = {
     description: post?.description,
     title: post?.title,
-    og_type: "article",
+    og_type: "website",
     image: post?.img,
     url: location,
     og_site_name: "blog.codexmakers.com",
