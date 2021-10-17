@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-codexmakerblogreactn-dev-193255-authRole",
+      "UnauthRoleArn": "arn:aws:iam::829055281972:role/amplify-codexmakerblogreactn-dev-193255-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::829055281972:role/amplify-codexmakerblogreactn-dev-193255-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-codexmakerblogreactn-dev-193255-deployment",
+      "UnauthRoleName": "amplify-codexmakerblogreactn-dev-193255-unauthRole",
+      "StackName": "amplify-codexmakerblogreactn-dev-193255",
+      "StackId": "arn:aws:cloudformation:us-east-2:829055281972:stack/amplify-codexmakerblogreactn-dev-193255/c7fd2c60-2ee1-11ec-b2ff-0266d0486c78",
+      "AmplifyAppId": "doc85iqs2ggfz"
+    }
+  }
+}
