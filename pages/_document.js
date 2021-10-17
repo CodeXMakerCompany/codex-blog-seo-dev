@@ -5,10 +5,7 @@ import { ServerStyleSheets } from '@material-ui/styles'; // works with @material
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
-        <Head>
-        
-        </Head>
+      <Html>
         <body>
           <Main />
           <NextScript />

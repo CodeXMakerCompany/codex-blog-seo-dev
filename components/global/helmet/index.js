@@ -15,12 +15,10 @@ export const SEOHelmet = ({ props }) => {
       <meta property="og:url" content={props.url} />
       <meta property="og:type" content={props.og_type} />
       <meta property="og:image" content={props.image} />
-      <meta property="og:image:secure_url" content={props.image} />
-      <meta property="og:image:type" content="image/jpeg" />
-      <meta property="og:image:width" content="400" />
-      <meta property="og:image:height" content="300" />
-      <meta property="og:image:alt" content={props.description} />
-      <meta property="og:site_name" content={props.og_site_name} />
+      <meta property="og:image:width" content="250" />
+      <meta property="og:image:height" content="250" />
+      <meta property="og:image:alt" content={props.title} />
+      <meta property="og:site_name" content={props.title} />
       <meta property="og:locale:alternate" content="es_MX" />
       <meta property="twitter:card" content={props.tw_card} />
       <meta property="twitter:url" content={props.url} />
