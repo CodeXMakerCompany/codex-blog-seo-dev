@@ -2,7 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { Container, Grid, Hidden } from "@material-ui/core";
 import { SEOHelmet } from "../../../components/global/helmet";
-import { fetchPostById, updatePostViews } from "../../../redux/actions/posts.action";
+import {
+  fetchPostById,
+  updatePostViews,
+} from "../../../redux/actions/posts.action";
 import { Fab, Paper, Rating } from "@mui/material";
 
 import { Typography } from "@material-ui/core";
@@ -18,7 +21,13 @@ import parseDate from "../../../utils/parseDate";
 
 const PostId = () => {
   const dispatch = useDispatch();
-  const id = window ? window.location.pathname.split("/")[2] : '0';
+  let id = "";
+  let location = "";
+  
+  if (typeof window !== "undefined") {
+    id = window?.location?.pathname?.split("/")[2];
+    location = window?.location.href;
+  }
   const [rate, setRate] = useState(0);
   const post = useSelector((state) => state.posts.targetPost);
   const theme = useSelector((state) => state.settings.theme);
@@ -43,7 +52,7 @@ const PostId = () => {
     title: post?.title,
     og_type: "article",
     image: post?.img,
-    url: window?.location.href,
+    url: location,
     og_site_name: "blog.codexmakers.com",
     tw_card: "summary",
   };
