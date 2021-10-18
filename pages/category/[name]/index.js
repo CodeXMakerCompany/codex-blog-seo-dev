@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPostsByCategory } from "../../../redux/reducers/postsReducer";
+import { fetchPostsByCategory } from "../../../redux/actions/posts.action";
 import { ElementsList } from '../../../components/homeComponents/elements.list';
+import { useRouter } from 'next/router';
 
 const Index = () => {
     const router = useRouter();

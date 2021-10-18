@@ -17,6 +17,8 @@ import { fetchLatestPosts } from "../redux/actions/posts.action";
 import { BannerSkeleton } from "../components/global/skeleton/Banner";
 import { MainRightSideSkeleton } from "../components/global/skeleton/MainRightSide";
 
+import Image from "next/image";
+
 const Home = () => {
   const dispatch = useDispatch();
 
@@ -67,7 +69,7 @@ const Home = () => {
           <Hidden xsDown>
             {state?.posts ? (
               <Grid item sm={4} md={3} align="center">
-                <img
+                <Image
                   alt="codexmaker-logo"
                   style={{ cursor: "pointer", width: "250px" }}
                   onClick={doSomeMagic(true)}
