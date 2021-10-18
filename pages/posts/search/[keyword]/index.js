@@ -16,7 +16,7 @@ const Index = () => {
   }, [keyword]);
 
   return (
-    <div>
+    <div style={{ paddingTop: "2rem" }}>
       {Array.isArray(state?.posts) ? <ElementsList list={state?.posts} /> : ""}
     </div>
   );

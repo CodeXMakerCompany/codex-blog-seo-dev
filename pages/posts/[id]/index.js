@@ -63,6 +63,7 @@ const PostId = () => {
       backgroundColor: theme === "light" ? "" : "#282c36",
       color: theme === "light" ? "" : "white",
       transition: "all .5s ease",
+      paddingTop: "2rem"
     },
     imgcontainer: {
       height: "30rem",

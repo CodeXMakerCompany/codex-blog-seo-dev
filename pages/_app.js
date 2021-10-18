@@ -29,7 +29,7 @@ const MyApp = ({ Component, pageProps }) => {
       }}
         >
         <HeaderGlobal />
-        <Component style={{ marginTop: "1rem" }} {...pageProps}/>
+        <Component {...pageProps}/>
         </div>
 
         </ThemeProvider>
