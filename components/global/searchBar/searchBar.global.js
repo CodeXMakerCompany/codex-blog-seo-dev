@@ -4,9 +4,7 @@ import debounce from 'lodash.debounce';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-
-// import { useHistory } from "react-router";
-
+import { useRouter } from "next/router";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -51,7 +49,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export const SearchBarGlobal = () => {
-  // const history = useHistory();
+  const router = useRouter();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedSave = useCallback(
@@ -60,7 +58,9 @@ export const SearchBarGlobal = () => {
 );
 
   const goToSearchView = (keyword) => {
-    // history.push(`/articles/${keyword}`);
+    router.push({
+      pathname: `/posts/search/${keyword}`,
+    })
   };
 
   const onChangeText = (evt) => {

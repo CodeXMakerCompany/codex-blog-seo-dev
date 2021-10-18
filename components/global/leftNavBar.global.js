@@ -12,6 +12,7 @@ import { items } from "../../config/navbarItems.config";
 import { useSelector } from "react-redux";
 import { themes } from "../../styles/theme";
 import { Grid, Typography } from "@material-ui/core";
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles({
   list: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles({
 
 export const TemporaryDrawer = (props) => {
   const classes = useStyles();
-  // let history = useHistory();
+  const router = useRouter();
   const { theme } = useSelector((state) => state.settings);
   const [state, setState] = React.useState({
     top: false,
@@ -44,14 +45,6 @@ export const TemporaryDrawer = (props) => {
     setState({ ...state, [anchor]: open });
   };
 
-  const goToCat = (path) => {
-    // if (path === "Home") {
-    //   return history.push("/");
-    // }
-
-    // history.push(`/${path}/articles`);
-  };
-
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {
@@ -69,7 +62,18 @@ export const TemporaryDrawer = (props) => {
     >
       <List>
         {items.map((i, index) => (
-          <ListItem button key={i.text} onClick={() => goToCat(i.text)}>
+          <ListItem button key={i.text} onClick={() => {
+
+            if (i.text === "Home") {
+              return router.push({
+                pathname: '/',
+              })
+            }
+            router.push({
+              pathname: '/category/[name]',
+              query: { name: i.text },
+            })
+          }}>
             <ListItemIcon
               dangerouslySetInnerHTML={{ __html: i.icon }}
               style={{

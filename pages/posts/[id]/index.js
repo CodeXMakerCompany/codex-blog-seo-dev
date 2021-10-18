@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { Container, Grid, Hidden } from "@material-ui/core";
+import { useRouter } from 'next/router'
 import { SEOHelmet } from "../../../components/global/helmet";
 import {
   fetchPostById,
@@ -21,13 +22,11 @@ import parseDate from "../../../utils/parseDate";
 
 const PostId = () => {
   const dispatch = useDispatch();
-  let id = "";
   let location = "";
-  
-  if (typeof window !== "undefined") {
-    id = window?.location?.pathname?.split("/")[2];
-    location = window?.location.href;
-  }
+
+  const router = useRouter();
+
+  const { id } = router.query;
   const [rate, setRate] = useState(0);
   const post = useSelector((state) => state.posts.targetPost);
   const theme = useSelector((state) => state.settings.theme);
@@ -52,12 +51,12 @@ const PostId = () => {
     title: post?.title,
     og_type: "website",
     image: post?.img,
-    url: location,
+    url: "https://blog.codexmakers.com" + router.asPath,
     og_site_name: "blog.codexmakers.com",
     tw_card: "summary",
   };
 
-  const toHome = () => {};
+  const toHome = () => { };
 
   const styles = {
     paperContainer: {
@@ -98,7 +97,7 @@ const PostId = () => {
       <Container maxWidth="xl">
         <Grid container spacing={2}>
           <Grid item xs={12} md={1}>
-            
+
           </Grid>
           <Grid item xs={12} sm={12} md={9}>
             <Container style={styles.titleBackground}>
