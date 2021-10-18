@@ -12,6 +12,7 @@ const Index = () => {
 
   useEffect(() => {
     dispatch(fetchPostsByQuery(keyword));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [keyword]);
 
   return (
