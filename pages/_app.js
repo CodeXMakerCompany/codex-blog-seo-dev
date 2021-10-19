@@ -25,7 +25,7 @@ const MyApp = ({ Component, pageProps }) => {
         backgroundColor: themes[theme].pageBackground,
         transition: "all .5s ease",
         color: themes[theme].titleColor,
-        height: "100%",
+        height: "100vh",
       }}
         >
         <HeaderGlobal />

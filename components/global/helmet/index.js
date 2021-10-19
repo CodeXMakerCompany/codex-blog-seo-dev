@@ -19,7 +19,6 @@ export const SEOHelmet = ({ props }) => {
       <meta property="og:image:height" content="250" key="image:height"/>
       <meta property="og:image:alt" content={props.title} key="image:alt"/>
       <meta property="og:site_name" content={props.title} key="og:site_name"/>
-      <meta property="og:locale" content="es_MX" key="locale"/>
       <meta property="twitter:card" content={props.tw_card} key="card"/>
       <meta property="twitter:url" content={props.url} key="twitter:url"/>
       <meta property="twitter:title" content={props.title} key="twitter:title"/>
