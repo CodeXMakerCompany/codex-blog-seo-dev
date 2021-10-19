@@ -1,5 +1,5 @@
 import * as React from "react";
-import Link from 'next/link'
+import Link from "next/link";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -14,7 +14,6 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 // import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { setSettings } from "../../../redux/actions/settings.actions";
 
 //Utils
 import parseDate from "../../../utils/parseDate";
@@ -34,8 +33,6 @@ const ExpandMore = styled((props) => {
 }));
 
 export const GlobalCard = ({ props }) => {
-  const dispatch = useDispatch();
-  // const history = useHistory();
   const [expanded, setExpanded] = React.useState(false);
   const themeState = useSelector((state) => state.settings.theme);
 
@@ -43,15 +40,14 @@ export const GlobalCard = ({ props }) => {
     setExpanded(!expanded);
   };
 
-  const nextPath = (path, data, link, id) => {
-    dispatch(setSettings(themeState, "testa", "testb", data, link, id));
-    // history.push(path);
-  };
-
   return (
     <Link href={`posts/${props._id}`}>
       {props.created_at ? (
-        <Card sx={{ maxWidth: 400 }}>
+        <Card
+          className="card-animation"
+          sx={{ maxWidth: 400 }}
+          style={{ backgroundColor: themeState === "dark" ? "#616161" : "", color: themeState === "dark" ? "beige" : "" }}
+        >
           <CardHeader
             title={
               <Typography noWrap gutterBottom variant="h6" component="h4">
@@ -61,24 +57,13 @@ export const GlobalCard = ({ props }) => {
             subheader={parseDate(props.created_at)}
             style={{ display: "block", overflow: "hidden", cursor: "pointer" }}
           />
-          <div
-            onClick={() =>
-              nextPath(
-                `/article/${props._id}`,
-                props.title,
-                props.link,
-                props._id
-              )
-            }
-          >
-            <CardMedia
-              component="img"
-              height="150"
-              image={props.img}
-              alt={props.source}
-              style={{ cursor: "pointer" }}
-            />
-          </div>
+          <CardMedia
+            component="img"
+            height="150"
+            image={props.img}
+            alt={props.source}
+            style={{ cursor: "pointer" }}
+          />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
               {props.source}
@@ -113,6 +98,22 @@ export const GlobalCard = ({ props }) => {
               <Typography paragraph>{props.description}</Typography>
             </CardContent>
           </Collapse>
+          <style global jsx>{`
+            .card-animation {
+              transition: 0.5s;
+              transform: scale(0.9);
+            }
+            .card-animation:hover::beffore {
+              transform: scale(1.1);
+              box-shadow: 0 0 15px #0288d1;
+            }
+            .card-animation:hover {
+              box-shadow: 0 0 10px #0288d1;
+              border-width: 1px;
+              border-style: solid;
+              border-color: #0288d1;
+            }
+          `}</style>
         </Card>
       ) : (
         <CardSkeleton />

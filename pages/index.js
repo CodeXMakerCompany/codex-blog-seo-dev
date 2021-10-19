@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { Banner } from "../components/global/banner/banner.global";
@@ -73,7 +74,7 @@ const Home = () => {
                   onClick={doSomeMagic(true)}
                   src="https://res.cloudinary.com/codexmaker/image/upload/v1630026497/logos/codexmaker_logo_my3ecl.png"
                 />
-                <RightBarComponent />
+                <RightBarComponent style={{ backgroundColor : "red"}}/>
               </Grid>
             ) : (
               <MainRightSideSkeleton />

@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
@@ -6,11 +7,11 @@ import IconButton from "@mui/material/IconButton";
 import { PersonRounded } from "@mui/icons-material";
 
 import { SwitchThemeMenu } from "./childs/switchTheme.menu";
-// import { useHistory } from "react-router";
 
 export const MenuHeader = () => {
+  const router = useRouter(); 
   const [anchorEl, setAnchorEl] = React.useState(null);
-  // const history = useHistory()
+
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -20,8 +21,11 @@ export const MenuHeader = () => {
     setAnchorEl(null);
   };
   const handleLogin = () => {
-    // history.push("/auth/login");
     setAnchorEl(null);
+    return router.push({
+      pathname: '/auth/login',
+    })
+    
   };
   return (
     <div>
