@@ -44,7 +44,7 @@ export const GlobalCard = ({ props }) => {
 
   const goToPost = (id) => {
     router.push({
-      pathname: `posts/[id]`,
+      pathname: `/posts/[id]`,
       query: { id: id },
     });
   };

@@ -1,5 +1,9 @@
 import React from "react";
 import { useRouter } from "next/router";
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "../../../../redux/actions/auth.actions";
+import Cookies from "universal-cookie";
+
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
@@ -9,11 +13,16 @@ import { PersonRounded } from "@mui/icons-material";
 import { SwitchThemeMenu } from "./childs/switchTheme.menu";
 
 export const MenuHeader = () => {
-  const router = useRouter(); 
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const cookies = new Cookies();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const open = Boolean(anchorEl);
 
+  const { user } = useSelector((state) => state.auth);
+  console.log(user);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -23,9 +32,16 @@ export const MenuHeader = () => {
   const handleLogin = () => {
     setAnchorEl(null);
     return router.push({
-      pathname: '/auth/login',
-    })
-    
+      pathname: "/auth/login",
+    });
+  };
+  const handleLogout = () => {
+    cookies.remove("token",  { path: '/' });
+    dispatch(setUser({}));
+
+    return router.push({
+      pathname: "/",
+    });
   };
   return (
     <div>
@@ -37,7 +53,14 @@ export const MenuHeader = () => {
         onClick={handleClick}
         style={{ color: "white" }}
       >
-        <PersonRounded />
+        {user?._id ? (
+          <img
+            style={{ width: "50px", borderRadius: "50%" }}
+            src={user.avatar}
+          />
+        ) : (
+          <PersonRounded />
+        )}
       </IconButton>
       <Menu
         id="basic-menu"
@@ -48,20 +71,21 @@ export const MenuHeader = () => {
           "aria-labelledby": "basic-button",
         }}
       >
-        <div>
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-        </div>
-        <div>
-          <MenuItem onClick={handleClose}>
-            Mode : <SwitchThemeMenu />
-          </MenuItem>
-        </div>
-        <div>
-          <MenuItem onClick={handleClose}>Logout</MenuItem>
-        </div>
-        <div>
-          <MenuItem onClick={handleLogin}>Login</MenuItem>
-        </div>
+        {user?._id ? (
+          <MenuItem onClick={handleLogout}>Logout</MenuItem>
+        ) : (
+          <>
+            <MenuItem onClick={handleClose}>Profile</MenuItem>
+
+            <div>
+              <MenuItem onClick={handleClose}>
+                Mode : <SwitchThemeMenu />
+              </MenuItem>
+            </div>
+
+            <MenuItem onClick={handleLogin}>Login</MenuItem>
+          </>
+        )}
       </Menu>
     </div>
   );

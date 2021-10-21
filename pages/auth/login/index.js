@@ -25,7 +25,7 @@ import CodexmakerApi from "../../../server/endpoints";
 
 //Redux
 import { openSnackBar } from "../../../redux/actions/snackbar.actions";
-import { login } from "../../../redux/actions/auth.actions";
+import { login, setUser } from "../../../redux/actions/auth.actions";
 
 const LoginScreen = () => {
   const classes = standarForm();
@@ -46,8 +46,9 @@ const LoginScreen = () => {
     const result = await CodexmakerApi("POST", "sign-in", formValues, null);
 
     if (result.status === "success") {
-      const { _id, name, rol } = result.user;
-      dispatch(login(_id, name, rol));
+      const { rol } = result.user;
+
+      dispatch(setUser(result.user));
       dispatch(
         openSnackBar({
           status: true,
@@ -57,6 +58,12 @@ const LoginScreen = () => {
       );
 
       cookies.set("token", result.token, { path: "/" });
+      
+      if (rol === ("Master" || "Admin")) {
+        return router.push({
+          pathname: "/admin",
+        });
+      }
       router.push({
         pathname: "/",
       });

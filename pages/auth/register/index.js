@@ -47,6 +47,7 @@ const RegisterScreen = () => {
 
     if (result.status === "success") {
       const { _id, name, rol } = result.user;
+      return console.log(result.user);
       dispatch(login(_id, name, rol));
       dispatch(
         openSnackBar({

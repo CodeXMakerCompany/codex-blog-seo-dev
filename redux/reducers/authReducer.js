@@ -9,6 +9,11 @@ export const authReducer = (state = INITIAL_STATE, action) => {
         _id: action.payload._id,
         name: action.payload.name,
       };
+    case types.setUser:
+      return {
+        ...state,
+        user: action.payload,
+      };
     case types.logout:
       return {};
     default:

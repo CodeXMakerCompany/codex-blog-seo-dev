@@ -48,7 +48,7 @@ const AdminDash = () => {
 
   return (
     <Container style={{ paddingTop: "2rem" }}>
-      {posts?.docs.length ? (
+      {posts?.docs?.length ? (
         <BaseTable header={headCells} rows={posts?.docs} />
       ) : (
         ""

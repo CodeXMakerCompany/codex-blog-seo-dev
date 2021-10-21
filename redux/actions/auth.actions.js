@@ -10,3 +10,10 @@ export const login = (_id, name, rol) => {
     },
   };
 };
+
+export const setUser = (content) => {
+  return {
+    type: types.setUser,
+    payload: content,
+  };
+};

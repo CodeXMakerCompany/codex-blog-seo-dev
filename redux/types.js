@@ -2,6 +2,7 @@ export const types = {
     activateModal : 'Activate Modal',
     activateSnackBar: 'Activate SnackBar',
     login: 'Login',
+    setUser: 'Set user',
     logout: 'Logout',
     tcgAuthorization: 'Tcg Authorization',
     payment: 'Payment',
