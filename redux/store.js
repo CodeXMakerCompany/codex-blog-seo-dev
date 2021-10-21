@@ -11,6 +11,7 @@ import { settingsReducer } from "./reducers/settingsReducer";
 //Handling data
 import { articlesReducer } from "./reducers/articlesReducer";
 import { postsReducer } from "./reducers/postsReducer";
+import { categoriesReducer } from "./reducers/categoriesReducer";
 
 const reducers = combineReducers({
   auth: authReducer,
@@ -19,6 +20,7 @@ const reducers = combineReducers({
   articles: articlesReducer,
   settings: settingsReducer,
   posts: postsReducer,
+  categories: categoriesReducer
 });
 
 let composeEnhancers = compose;

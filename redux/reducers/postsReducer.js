@@ -22,6 +22,12 @@ export const postsReducer = (state = INITIAL_STATE, action) => {
         posts: action.payload,
       };
     }
+    case types.fetchPostsByPagination: {
+      return {
+        ...state,
+        posts: action.payload,
+      };
+    }
     case types.fetchLikeQueryPosts: {
       return {
         ...state,

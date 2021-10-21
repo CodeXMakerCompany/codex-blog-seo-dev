@@ -11,7 +11,7 @@ const CodexmakerApi = async (
   options = null
 ) => {
   const axiosInstance = await axios.create({
-    baseURL: prod ? api.backendProductionUri :api.backendDevelopmentUri,
+    baseURL: prod ? api.backendProductionUri : api.backendDevelopmentUri,
     timeout: 10000,
     withCredentials: false,
     headers: {
@@ -49,6 +49,16 @@ const CodexmakerApi = async (
           return e?.response?.data;
         });
       return putData;
+    case "DELETE":
+      const deleteData = await axiosInstance
+        .delete(path)
+        .then(async (r) => {
+          return r;
+        })
+        .catch(async (e) => {
+          return e?.response?.data;
+        });
+      return deleteData;
     default:
       break;
   }

@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import { HeaderGlobal } from "../components/global/header/header.global";
 import { SnackBarWrapper } from "../components/global/snackBar.global";
+import { ModalWrapper } from "../components/global/modal.global";
 import { SnackbarProvider } from "notistack";
 import { reduxWrapper } from "../redux/store";
 import { useSelector } from "react-redux";
@@ -18,6 +19,7 @@ const MyApp = ({ Component, pageProps }) => {
     <>
 
       <SnackbarProvider>
+        <ModalWrapper onHide={null} />
         <SnackBarWrapper onHide={null} />
         <ThemeProvider theme={themes[theme]}>
         <div

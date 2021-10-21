@@ -1,4 +1,4 @@
-import { types } from "../types/types";
+import { types } from "../types";
 
 export const toggleModal = content => {
     const payload = content === 'close' ? null : content

@@ -12,6 +12,9 @@ export const types = {
     fetchCategoryQueryPosts : 'Get posts by category',
     fetchLikeQueryPosts: 'Get Query Posts',
     fetchLatestPosts: 'Get Latest Posts',
+    fetchPostsByPagination: 'Get Posts by pagination',
     fetchPostById: 'Get Post',
-    addViewToPost: "Add a view to a post"
+    removePost: 'Remove Post',
+    addViewToPost: "Add a view to a post",
+    fetchCategories: "Get all the categories"
 }

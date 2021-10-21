@@ -2,7 +2,7 @@ import React from "react";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
 import { useDispatch } from "react-redux";
-import { toggleModal } from "../../../actions/modal.actions";
+import { toggleModal } from "../../../redux/actions/modal.actions";
 
 export const TestingModal = () => {
   const dispatch = useDispatch();

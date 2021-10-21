@@ -1,5 +1,5 @@
-import React from "react";
-// import { useHistory } from "react-router-dom";
+/* eslint-disable @next/next/no-img-element */
+import React, { useEffect } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -8,11 +8,13 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import { items } from "../../config/navbarItems.config";
-import { useSelector } from "react-redux";
 import { themes } from "../../styles/theme";
 import { Grid, Typography } from "@material-ui/core";
 import { useRouter } from "next/router";
+
+//Redux
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategories } from "../../redux/actions/category.action";
 
 const useStyles = makeStyles({
   list: {
@@ -26,13 +28,21 @@ const useStyles = makeStyles({
 export const TemporaryDrawer = (props) => {
   const classes = useStyles();
   const router = useRouter();
+  const dispatch = useDispatch();
   const { theme } = useSelector((state) => state.settings);
+  const { categories } = useSelector((state) => state.categories);
+
   const [state, setState] = React.useState({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
+
+  useEffect(() => {
+    dispatch(fetchCategories())
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -61,8 +71,8 @@ export const TemporaryDrawer = (props) => {
       }}
     >
       <List>
-        {items.map((i, index) => (
-          <ListItem button key={i.text} onClick={() => {
+        {categories?.map((i, index) => (
+          <ListItem button key={i.name} onClick={() => {
 
             if (i.text === "Home") {
               return router.push({
@@ -71,7 +81,7 @@ export const TemporaryDrawer = (props) => {
             }
             router.push({
               pathname: '/category/[name]',
-              query: { name: i.text },
+              query: { name: i.name },
             })
           }}>
             <ListItemIcon
@@ -81,7 +91,7 @@ export const TemporaryDrawer = (props) => {
                 width: "20px !important",
               }}
             ></ListItemIcon>
-            <ListItemText primary={i.text} />
+            <ListItemText primary={i.name} />
           </ListItem>
         ))}
       </List>
