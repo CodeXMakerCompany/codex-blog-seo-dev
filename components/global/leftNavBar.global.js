@@ -12,6 +12,8 @@ import { themes } from "../../styles/theme";
 import { Grid, Typography } from "@material-ui/core";
 import { useRouter } from "next/router";
 
+import { items } from "../../config/navbarItems.config";
+
 //Redux
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../../redux/actions/category.action";
@@ -24,6 +26,16 @@ const useStyles = makeStyles({
     width: "auto",
   },
 });
+
+const getMyIcon = (name) => {
+  const result = items.filter((i) => i.text === name)[0];
+  return result?.icon || "no hay";
+};
+
+const getMyColor = (name) => {
+  const result = items.filter((i) => i.text === name)[0];
+  return result?.color || "no hay";
+};
 
 export const TemporaryDrawer = (props) => {
   const classes = useStyles();
@@ -40,9 +52,9 @@ export const TemporaryDrawer = (props) => {
   });
 
   useEffect(() => {
-    dispatch(fetchCategories())
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    dispatch(fetchCategories());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -71,23 +83,38 @@ export const TemporaryDrawer = (props) => {
       }}
     >
       <List>
-        {categories?.map((i, index) => (
-          <ListItem button key={i.name} onClick={() => {
-
-            if (i.text === "Home") {
-              return router.push({
-                pathname: '/',
-              })
-            }
+        <ListItem
+          button
+          key={"home"}
+          onClick={() => {
             router.push({
-              pathname: '/category/[name]',
-              query: { name: i.name },
-            })
-          }}>
+              pathname: "/",
+            });
+          }}
+        >
+          <ListItemIcon></ListItemIcon>
+          <ListItemText primary={"Home"} />
+        </ListItem>
+        {categories?.map((i, index) => (
+          <ListItem
+            button
+            key={i.name}
+            onClick={() => {
+              if (i.text === "Home") {
+                return router.push({
+                  pathname: "/",
+                });
+              }
+              router.push({
+                pathname: "/category/[name]",
+                query: { name: i.name },
+              });
+            }}
+          >
             <ListItemIcon
-              dangerouslySetInnerHTML={{ __html: i.icon }}
+              dangerouslySetInnerHTML={{ __html: getMyIcon(i.name) }}
               style={{
-                color: theme === "light" ? "black" : "white",
+                color: getMyColor(i.name),
                 width: "20px !important",
               }}
             ></ListItemIcon>
@@ -106,13 +133,19 @@ export const TemporaryDrawer = (props) => {
           <Grid item xs={4}>
             <img
               alt="codexmaker-logo"
-              style={{ cursor: "pointer", width: "60px", maxWidth: "60px !important" }}
+              style={{
+                cursor: "pointer",
+                width: "60px",
+                maxWidth: "60px !important",
+              }}
               onClick={toggleDrawer("left", true)}
               src="https://res.cloudinary.com/codexmaker/image/upload/v1630026497/logos/codexmaker_logo_my3ecl.png"
             />
           </Grid>
           <Grid item xs={8}>
-            <Typography style={{ marginTop: "15%" }} variant="h6">CodexBlog</Typography>
+            <Typography style={{ marginTop: "15%" }} variant="h6">
+              CodexBlog
+            </Typography>
           </Grid>
         </Grid>
       </div>

@@ -79,6 +79,7 @@ const CreatePost = () => {
         "https://api.cloudinary.com/v1_1/codexmaker/image/upload",
         data
       );
+      console.log(cloudinaryResponse);
     } catch (error) {
       return console.warn("Error on file upload boss", error);
     }
