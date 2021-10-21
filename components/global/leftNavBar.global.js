@@ -127,7 +127,7 @@ export const TemporaryDrawer = (props) => {
   );
 
   return (
-    <>
+    <div>
       <div>
         <Grid container spacing={2}>
           <Grid item xs={4}>
@@ -157,6 +157,6 @@ export const TemporaryDrawer = (props) => {
       >
         {list("left")}
       </Drawer>
-    </>
+    </div>
   );
 };

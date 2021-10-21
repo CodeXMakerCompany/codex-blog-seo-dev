@@ -22,7 +22,7 @@ export const MenuHeader = () => {
   const open = Boolean(anchorEl);
 
   const { user } = useSelector((state) => state.auth);
-  console.log(user);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -74,7 +74,7 @@ export const MenuHeader = () => {
         {user?._id ? (
           <MenuItem onClick={handleLogout}>Logout</MenuItem>
         ) : (
-          <>
+          <div>
             <MenuItem onClick={handleClose}>Profile</MenuItem>
 
             <div>
@@ -84,7 +84,7 @@ export const MenuHeader = () => {
             </div>
 
             <MenuItem onClick={handleLogin}>Login</MenuItem>
-          </>
+          </div>
         )}
       </Menu>
     </div>
