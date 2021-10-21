@@ -21,6 +21,7 @@ import parseDate from "../../../utils/parseDate";
 //skeleton
 import { CardSkeleton } from "../skeleton/Card";
 import { Rating } from "@mui/material";
+import { useRouter } from "next/router";
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -33,6 +34,7 @@ const ExpandMore = styled((props) => {
 }));
 
 export const GlobalCard = ({ props }) => {
+  const router = useRouter();
   const [expanded, setExpanded] = React.useState(false);
   const themeState = useSelector((state) => state.settings.theme);
 
@@ -40,13 +42,23 @@ export const GlobalCard = ({ props }) => {
     setExpanded(!expanded);
   };
 
+  const goToPost = (id) => {
+    router.push({
+      pathname: `posts/[id]`,
+      query: { id: id },
+    });
+  };
+
   return (
-    <Link href={`posts/${props._id}`}>
+    <a onClick={() => goToPost(props._id)}>
       {props.created_at ? (
         <Card
           className="card-animation"
           sx={{ maxWidth: 400 }}
-          style={{ backgroundColor: themeState === "dark" ? "#616161" : "", color: themeState === "dark" ? "beige" : "" }}
+          style={{
+            backgroundColor: themeState === "dark" ? "#616161" : "",
+            color: themeState === "dark" ? "beige" : "",
+          }}
         >
           <CardHeader
             title={
@@ -118,6 +130,6 @@ export const GlobalCard = ({ props }) => {
       ) : (
         <CardSkeleton />
       )}
-    </Link>
+    </a>
   );
 };

@@ -8,7 +8,7 @@ export const SEOHelmet = ({ props }) => {
       <meta name="description" content={props.description} />
       <link
         rel="icon"
-        href="https://res.cloudinary.com/codexmaker/image/upload/v1630026497/logos/codexmaker_logo_my3ecl.png"
+        href={props.image}
       />
       <meta property="og:title" content={props.title} key="title"/>
       <meta property="og:description" content={props.description} key="description"/>
