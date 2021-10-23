@@ -4,8 +4,9 @@ import React, { useEffect, useState } from "react";
 import { Container, Grid, Hidden } from "@material-ui/core";
 import { useRouter } from "next/router";
 import { SEOHelmet } from "../../../components/global/helmet";
+import { AdsGlobal } from '../../../components/global/ads/ads.global'
+
 import {
-  fetchPostById,
   updatePostViews,
 } from "../../../redux/actions/posts.action";
 import { Fab, Paper, Rating } from "@mui/material";
@@ -20,21 +21,19 @@ import { openSnackBar } from "../../../redux/actions/snackbar.actions";
 
 import parseDate from "../../../utils/parseDate";
 
-const PostId = ({postX}) => {
-  
-  const dispatch = useDispatch();
 
-  const [post] = useState(postX)
+const PostId = ({post}) => {
+  console.log(post);
+  const dispatch = useDispatch();
 
   const router = useRouter();
   const { id } = router.query;
 
   const [rate, setRate] = useState(0);
-  // const post = useSelector((state) => state.posts.targetPost);
+  
   const theme = useSelector((state) => state.settings.theme);
-  // console.log(postX)
+
   useEffect(() => {
-    // dispatch(fetchPostById(id));
     dispatch(updatePostViews(id));
   }, [id]);
 
@@ -51,12 +50,14 @@ const PostId = ({postX}) => {
   const articleSeo = {
     description: post?.description,
     title: post?.title,
-    og_type: "website",
+    og_type: "article",
     image: post?.img,
     url: "https://blog.codexmakers.com" + router.asPath,
     og_site_name: "blog.codexmakers.com",
     tw_card: "summary",
   };
+
+  const iframe = post.ad.unit;
 
   const toHome = () => {};
 
@@ -99,7 +100,9 @@ const PostId = ({postX}) => {
       <img alt={post?.img} style={styles.imgcontainer} src={post?.img} />
       <Container maxWidth="xl">
         <Grid container spacing={2}>
-          <Grid item xs={12} md={1}></Grid>
+          <Grid item xs={12} md={1}>
+            <AdsGlobal iframe={iframe}/>
+          </Grid>
           <Grid item xs={12} sm={12} md={9}>
             <Container style={styles.titleBackground}>
               <Typography variant="h3" style={styles.typoA}>
@@ -186,7 +189,7 @@ PostId.getInitialProps = async (ctx) => {
   const { query : {id} } = ctx;
   const res = await fetch('https://codexmaker.xyz/api/get-post-by-id/'+id)
   const json = await res.json()
-  return { postX:  json.data }
+  return { post:  json.data }
 };
 
 export default PostId;
