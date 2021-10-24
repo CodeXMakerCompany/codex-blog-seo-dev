@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import { Box, TextField, Zoom } from "@material-ui/core";
+import { Box, Container, TextField, Zoom } from "@material-ui/core";
 import { Fab, Grid } from "@mui/material";
 import Cookies from "universal-cookie";
 //Editor
@@ -16,7 +16,6 @@ import Editor from "../../../components/global/editor";
 import BaseInputField from "../../../components/global/inputs/BaseInputField";
 import BaseSelectionInputField from "../../../components/global/inputs/BaseOptionSelectionInput";
 import BaseDatePicker from "../../../components/global/inputs/BaseDatePicker";
-
 
 const adsTypes = [{ name: "iframe" }, { name: "popup" }, { name: "floating" }];
 
@@ -265,14 +264,15 @@ const CreatePost = () => {
           ""
         )}
       </Box>
-
-      <Editor
-        name="description"
-        onChange={(data) => {
-          setContent(data);
-        }}
-        editorLoaded={editorLoaded}
-      />
+      <Container>
+        <Editor
+          name="description"
+          onChange={(data) => {
+            setContent(data);
+          }}
+          editorLoaded={editorLoaded}
+        />
+      </Container>
     </div>
   );
 };
