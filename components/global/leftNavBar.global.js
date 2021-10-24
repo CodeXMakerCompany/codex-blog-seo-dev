@@ -142,11 +142,11 @@ export const TemporaryDrawer = (props) => {
               src="https://res.cloudinary.com/codexmaker/image/upload/v1630026497/logos/codexmaker_logo_my3ecl.png"
             />
           </Grid>
-          <Grid item xs={8}>
+          {/* <Grid item xs={8}>
             <Typography style={{ marginTop: "15%" }} variant="h6">
               CodexBlog
             </Typography>
-          </Grid>
+          </Grid> */}
         </Grid>
       </div>
 

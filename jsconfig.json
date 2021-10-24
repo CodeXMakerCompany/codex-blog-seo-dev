@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@globalComponents/*": ["components/global/*"],
+      "@homeComponents/*": ["components/homeComponents/*"],
+      "@customHooks/*": ["custom-hooks/*"],
+      "@redux/*": ["redux/*"],
+      "@pages/*": ["pages/*"]
+    }
+  }
+}

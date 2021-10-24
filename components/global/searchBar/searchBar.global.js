@@ -13,8 +13,8 @@ const Search = styled('div')(({ theme }) => ({
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
-  marginLeft: 0,
-  width: '100%',
+  marginLeft: 110,
+  width: '50%',
   [theme.breakpoints.up('sm')]: {
     marginRight: theme.spacing(30),
     width: 'auto',
@@ -40,7 +40,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: '12ch',
+      width: '16ch',
       '&:focus': {
         width: '28ch',
       },

@@ -23,7 +23,6 @@ import parseDate from "../../../utils/parseDate";
 
 
 const PostId = ({post}) => {
-  console.log(post);
   const dispatch = useDispatch();
 
   const router = useRouter();
@@ -69,8 +68,8 @@ const PostId = ({post}) => {
       paddingTop: "2rem",
     },
     imgcontainer: {
-      height: "30rem",
       width: "100%",
+      maxHeight: "600px",
     },
     typoA: {
       position: "absolute",
@@ -172,11 +171,12 @@ const PostId = ({post}) => {
           .MuiTypography-h3 {
             font-size: 2rem;
             width: inherit;
+            top: 20% !important;
           }
           .MuiTypography-h4 {
             font-size: 1.5rem;
             width: inherit;
-            top: 56% !important;
+            top: 30% !important;
           }
         }
       `}</style>
