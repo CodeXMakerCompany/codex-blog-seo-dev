@@ -50,7 +50,8 @@ export const GlobalCard = ({ props }) => {
   };
 
   return (
-    <a onClick={() => goToPost(props._id)}>
+    <div>
+      { props?._id ? <a onClick={() => goToPost(props._id)}>
       {props.created_at ? (
         <Card
           className="card-animation"
@@ -130,6 +131,8 @@ export const GlobalCard = ({ props }) => {
       ) : (
         <CardSkeleton />
       )}
-    </a>
+    </a>: "loading..."}
+    </div>
+    
   );
 };
