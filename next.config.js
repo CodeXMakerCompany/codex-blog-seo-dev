@@ -3,9 +3,5 @@ module.exports = {
   images: {
     domains: ["res.cloudinary.com"],
   },
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    config.optimization.splitChunks.cacheGroups = {};
-    config.optimization.minimize = true;
-    return config;
-  },
+  webpack5: false,
 };
