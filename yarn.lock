@@ -247,6 +247,13 @@
   dependencies:
     ckeditor5 "^30.0.0"
 
+"@ckeditor/ckeditor5-code-block@^30.0.0":
+  version "30.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-code-block/-/ckeditor5-code-block-30.0.0.tgz#a785feb5512286a58b07b13cb2a28b5b57054c7e"
+  integrity sha512-/1RPU/IZqPev8ZXKBcE0blf1Xs4SWRFoq4BvvSVm47lLk/MsjIX3Le0xB7ICmqT2Pzy+gva0ZXf4vmzvQzcO+Q==
+  dependencies:
+    ckeditor5 "^30.0.0"
+
 "@ckeditor/ckeditor5-core@^30.0.0":
   version "30.0.0"
   resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-core/-/ckeditor5-core-30.0.0.tgz#1330b9579127ad42b5fe87fc5e02d80b871d963a"
