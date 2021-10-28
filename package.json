@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^30.0.0",
+    "@ckeditor/ckeditor5-code-block": "^30.0.0",
     "@ckeditor/ckeditor5-react": "^3.0.3",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
