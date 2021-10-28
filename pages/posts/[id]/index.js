@@ -56,8 +56,8 @@ const PostId = ({post}) => {
     tw_card: "summary",
   };
 
-  const iframe = post.ad.unit;
-
+  const iframe = post?.ad?.unit;
+  console.log(iframe);
   const toHome = () => {};
 
   const styles = {
@@ -100,7 +100,7 @@ const PostId = ({post}) => {
       <Container maxWidth="xl">
         <Grid container spacing={2}>
           <Grid item xs={12} md={1}>
-            <AdsGlobal iframe={iframe}/>
+            { iframe ? <AdsGlobal iframe={iframe}/> : "Pending ..."} 
           </Grid>
           <Grid item xs={12} sm={12} md={9}>
             <Container style={styles.titleBackground}>
