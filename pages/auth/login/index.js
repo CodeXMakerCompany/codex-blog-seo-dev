@@ -33,8 +33,8 @@ const LoginScreen = () => {
   const router = useRouter();
 
   const [formValues, handleInputChange] = useForm({
-    email: "codexmaker@gmail.com",
-    password: "Rikaleonov1",
+    email: "",
+    password: "",
   });
 
   const cookies = new Cookie();

@@ -3,9 +3,9 @@
 import React, { useEffect } from "react";
 import { Banner } from "../components/global/banner/banner.global";
 import { ElementsList } from "../components/homeComponents/elements.list";
-import { AdsGlobal } from "../components/global/ads/ads.global";
+// import { AdsGlobal } from "../components/global/ads/ads.global";
 import { SEOHelmet } from "../components/global/helmet";
-import { homeLeftSide } from "../config/ads.config";
+// import { homeLeftSide } from "../config/ads.config";
 import { Container, Grid, Hidden } from "@material-ui/core";
 
 import { RightBarComponent } from "../components/homeComponents/rightBar.component";
@@ -47,7 +47,7 @@ const Home = () => {
       <Container maxWidth="xl" style={{ paddingTop: "2rem" }}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={2}>
-            <AdsGlobal iframe={homeLeftSide} />
+            {/* <AdsGlobal iframe={homeLeftSide} /> */}
           </Grid>
           <Grid item xs={12} sm={8} md={7}>
             {state?.posts ? <Banner /> : <BannerSkeleton />}

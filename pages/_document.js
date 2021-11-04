@@ -11,7 +11,15 @@ export default class MyDocument extends Document {
             rel="icon"
             href="https://res.cloudinary.com/codexmaker/image/upload/c_scale,w_85/v1634567963/logos/codexmaker_logo_small_ldw2vc.png"
           />
-          <meta name="theme-color" content="secondary"/>
+          <meta name="theme-color" content="secondary" />
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=G-G98C5EB1JP`}></script>
+          <script dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-G98C5EB1JP')`}}  >
+          </script>
         </Head>
         <body>
           <Main />

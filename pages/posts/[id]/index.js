@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Grid, Hidden } from "@material-ui/core";
 import { useRouter } from "next/router";
 import { SEOHelmet } from "../../../components/global/helmet";
-import { AdsGlobal } from '../../../components/global/ads/ads.global'
+// import { AdsGlobal } from '../../../components/global/ads/ads.global'
 
 import {
   updatePostViews,
@@ -56,8 +56,8 @@ const PostId = ({post}) => {
     tw_card: "summary",
   };
 
-  const iframe = post?.ad?.unit;
-  console.log(iframe);
+  // const iframe = post?.ad?.unit;
+  
   const toHome = () => {};
 
   const styles = {
@@ -100,7 +100,7 @@ const PostId = ({post}) => {
       <Container maxWidth="xl">
         <Grid container spacing={2}>
           <Grid item xs={12} md={1}>
-            { iframe ? <AdsGlobal iframe={iframe}/> : "Pending ..."} 
+            {/* { iframe ? <AdsGlobal iframe={iframe}/> : "Pending ..."}  */}
           </Grid>
           <Grid item xs={12} sm={12} md={9}>
             <Container style={styles.titleBackground}>
