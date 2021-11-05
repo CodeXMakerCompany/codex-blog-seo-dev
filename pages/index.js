@@ -54,6 +54,12 @@ const Home = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} md={2}>
             {/* <AdsGlobal iframe={homeLeftSide} /> */}
+            <ins className="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-8289791338272420"
+            data-ad-slot="2615172089"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
           </Grid>
           <Grid item xs={12} sm={8} md={7}>
             {state?.posts ? <Banner /> : <BannerSkeleton />}
