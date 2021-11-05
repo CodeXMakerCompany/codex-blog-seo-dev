@@ -12,6 +12,8 @@ export default class MyDocument extends Document {
             href="https://res.cloudinary.com/codexmaker/image/upload/c_scale,w_85/v1634567963/logos/codexmaker_logo_small_ldw2vc.png"
           />
           <meta name="theme-color" content="secondary" />
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289791338272420"
+            crossOrigin="anonymous"></script>
           <script async src={`https://www.googletagmanager.com/gtag/js?id=G-G98C5EB1JP`}></script>
           <script dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
