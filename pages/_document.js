@@ -22,6 +22,11 @@ export default class MyDocument extends Document {
 
             gtag('config', 'G-G98C5EB1JP')`}}  >
           </script>
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8289791338272420"
+            crossOrigin="anonymous"></script>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({ });
+          </script>
         </Head>
         <body>
           <Main />
