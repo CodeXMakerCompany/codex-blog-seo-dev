@@ -19,6 +19,12 @@ const MyApp = ({ Component, pageProps }) => {
 
   useEffect(() => {
 
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (err) {
+      console.log(err);
+    }
+
     const handleRouteChange = (url) => {
       gtag.pageview(url)
     }
@@ -44,6 +50,12 @@ const MyApp = ({ Component, pageProps }) => {
           >
             <HeaderGlobal />
             <Component {...pageProps} />
+            <ins className="adsbygoogle"
+              style="display:block"
+              data-ad-client="ca-pub-8289791338272420"
+              data-ad-slot="2615172089"
+              data-ad-format="auto"
+              data-full-width-responsive="true"></ins>
           </div>
 
         </ThemeProvider>
