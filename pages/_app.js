@@ -18,7 +18,7 @@ const MyApp = ({ Component, pageProps }) => {
   const { theme } = useSelector((state) => state.settings);
 
   useEffect(() => {
-    
+
     const handleRouteChange = (url) => {
       gtag.pageview(url)
     }
@@ -45,7 +45,12 @@ const MyApp = ({ Component, pageProps }) => {
             <HeaderGlobal />
             <Component {...pageProps} />
           </div>
-
+          <ins className="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-8289791338272420"
+            data-ad-slot="2615172089"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
         </ThemeProvider>
       </SnackbarProvider>
     </>

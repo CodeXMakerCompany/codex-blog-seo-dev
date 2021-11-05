@@ -36,6 +36,12 @@ const Home = () => {
   };
 
   useEffect(() => {
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      console.log(window.adsbygoogle);
+    } catch (err) {
+      console.log(err);
+    }
     dispatch(fetchLatestPosts());
   }, []);
 
