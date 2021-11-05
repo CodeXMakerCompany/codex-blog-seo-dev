@@ -55,7 +55,7 @@ const MyApp = ({ Component, pageProps }) => {
               data-ad-client="ca-pub-8289791338272420"
               data-ad-slot="2615172089"
               data-ad-format="auto"
-              data-full-width-responsive="true"></ins>
+              data-full-width-responsive="true" />
           </div>
 
         </ThemeProvider>
