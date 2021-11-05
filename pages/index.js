@@ -45,7 +45,7 @@ const Home = () => {
     dispatch(fetchLatestPosts());
   }, []);
 
-  const doSomeMagic = () => {};
+  const doSomeMagic = () => { };
 
   return (
     <>
@@ -54,12 +54,20 @@ const Home = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} md={2}>
             {/* <AdsGlobal iframe={homeLeftSide} /> */}
-            <ins className="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-8289791338272420"
-            data-ad-slot="2615172089"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
+            <ins
+              className="adsbygoogle adbanner-customize"
+              style={{
+                display: "block"
+              }}
+              data-ad-client="ca-pub-8289791338272420"
+              data-ad-slot="2615172089"
+            />
+            {/* <ins className="adsbygoogle"
+              style="display:block"
+              data-ad-client="ca-pub-8289791338272420"
+              data-ad-slot="2615172089"
+              data-ad-format="auto"
+              data-full-width-responsive="true" /> */}
           </Grid>
           <Grid item xs={12} sm={8} md={7}>
             {state?.posts ? <Banner /> : <BannerSkeleton />}
@@ -86,7 +94,7 @@ const Home = () => {
                   onClick={doSomeMagic(true)}
                   src="https://res.cloudinary.com/codexmaker/image/upload/v1630026497/logos/codexmaker_logo_my3ecl.png"
                 />
-                <RightBarComponent style={{ backgroundColor : "red"}}/>
+                <RightBarComponent style={{ backgroundColor: "red" }} />
               </Grid>
             ) : (
               <MainRightSideSkeleton />
